@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Interactivo - Análisis Estratégico Venezuela</title>
+    <title>Mapa Interactivo - Análisis Completo Venezuela</title>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <style>
@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h1>Mapa Interactivo - Análisis Estratégico Venezuela</h1>
+    <h1>Mapa Interactivo - Análisis Completo de Venezuela (2024-2025)</h1>
     <div id="map"></div>
     <script>
         var map = L.map('map').setView([10, -66], 6); // Centrado en Venezuela
@@ -22,12 +22,13 @@
         }).addTo(map);
 
         var noticias = [
-            {categoria: "Energía", color: "yellow", coordenadas: [10.466, -66.879], descripcion: "Producción diaria promedio: 680.000 barriles por día【Fuente: OPEP, diciembre 2024】."},
-            {categoria: "Migración", color: "blue", coordenadas: [8.0, -80.7821], descripcion: "70% de los migrantes del Darién son venezolanos【Fuente: Defensoría del Pueblo de Panamá, febrero 2025】."},
-            {categoria: "Seguridad", color: "red", coordenadas: [7.9, -72.5], descripcion: "Control territorial de ELN y FARC en 15 municipios fronterizos【Fuente: Fundación Paz y Reconciliación, noviembre 2024】."},
-            {categoria: "Narcotráfico", color: "green", coordenadas: [9.5, -71.1], descripcion: "Identificación de más de 200 pistas clandestinas en Apure y Bolívar【Fuente: Insight Crime, febrero 2025】."},
-            {categoria: "Sanciones", color: "orange", coordenadas: [10.496, -66.849], descripcion: "Sanciones de la UE y Canadá a 15 nuevos funcionarios【Fuente: El País, noviembre 2024】."},
-            {categoria: "Relaciones Internacionales", color: "purple", coordenadas: [10.5, -66.85], descripcion: "Ampliación de cooperación militar con Rusia e Irán【Fuente: Agencia Tass, diciembre 2024】."}
+            {categoria: "Energía", color: "yellow", coordenadas: [10.466, -66.879], descripcion: "Producción petrolera: La producción diaria promedio fue de 680.000 barriles por día【Fuente: <a href='https://www.opec.org' target='_blank'>Informe OPEP, diciembre 2024</a>】."},
+            {categoria: "Energía", color: "yellow", coordenadas: [10.5, -72.0], descripcion: "Crisis eléctrica: Se documentaron 15.430 fallos de electricidad entre agosto de 2024 y febrero de 2025【Fuente: <a href='https://comiteapagones.org' target='_blank'>Comité de Afectados por los Apagones, febrero 2025</a>】."},
+            {categoria: "Migración", color: "blue", coordenadas: [8.0, -80.7821], descripcion: "Crisis del Darién: 70% de los migrantes que cruzan esta peligrosa ruta son venezolanos【Fuente: <a href='https://defensoria.gob.pa' target='_blank'>Defensoría del Pueblo de Panamá, febrero 2025</a>】."},
+            {categoria: "Seguridad", color: "red", coordenadas: [7.9, -72.5], descripcion: "Control territorial: El ELN y las FARC dominan 15 municipios fronterizos【Fuente: <a href='https://www.pares.com.co' target='_blank'>Fundación Paz y Reconciliación, noviembre 2024</a>】."},
+            {categoria: "Narcotráfico", color: "green", coordenadas: [9.5, -71.1], descripcion: "Pistas clandestinas: Se identificaron más de 200 pistas ilegales en Apure y Bolívar【Fuente: <a href='https://www.insightcrime.org' target='_blank'>Reporte Insight Crime, febrero 2025</a>】."},
+            {categoria: "Sanciones", color: "orange", coordenadas: [10.496, -66.849], descripcion: "Sanciones individuales: La UE y Canadá sancionaron a 15 nuevos funcionarios vinculados a violaciones de derechos humanos【Fuente: <a href='https://elpais.com' target='_blank'>Diario El País, noviembre 2024</a>】."},
+            {categoria: "Relaciones Internacionales", color: "purple", coordenadas: [10.5, -66.85], descripcion: "Rusia e Irán: Ampliación de la cooperación militar y tecnológica【Fuente: <a href='https://tass.com' target='_blank'>Agencia Tass, diciembre 2024</a>】."}
         ];
 
         noticias.forEach(function(noticia) {
