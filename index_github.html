@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo - Noticias de Migración, Crimen Organizado y Narcotráfico Venezolano</title>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapa Interactivo - Noticias de Migración, Crimen Organizado y Narcotráfico Venezolano</h1>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var noticias = [
+            {pais: "Colombia", coordenadas: [4.711, -74.0721], tema: "Migración", fecha: "2025-02-10", descripcion: "Creciente flujo de migrantes venezolanos en la frontera.", enlace: "https://ejemplo.com/noticia1"},
+            {pais: "Perú", coordenadas: [-9.19, -75.0152], tema: "Crimen Organizado", fecha: "2025-02-09", descripcion: "Operación policial desmantela red de tráfico de personas con vínculos venezolanos.", enlace: "https://ejemplo.com/noticia2"},
+            {pais: "Chile", coordenadas: [-33.4489, -70.6693], tema: "Crimen Organizado", fecha: "2024-12-17", descripcion: "Desmantelamiento de célula del Tren de Aragua en Santiago.", enlace: "https://elpais.com/chile/2024-12-17/desbartada-una-celula-del-tren-de-aragua-que-operaba-en-un-sector-cercano-al-palacio-de-la-moneda-en-santiago.html"},
+            {pais: "México", coordenadas: [19.4326, -99.1332], tema: "Crimen Organizado", fecha: "2024-08-19", descripcion: "Feminicidio de dos jóvenes venezolanas en Ciudad de México.", enlace: "https://elpais.com/mexico/2024-08-19/el-brutal-feminicidio-de-stephanie-y-susej-destapa-las-redes-de-trata-sexual-en-ciudad-de-mexico.html"},
+            {pais: "Estados Unidos", coordenadas: [39.7392, -104.9903], tema: "Crimen Organizado", fecha: "2024-09-30", descripcion: "Posible presencia del Tren de Aragua en varias ciudades de EE.UU.", enlace: "https://elpais.com/us/2024-09-30/el-esquivo-rastro-del-tren-de-aragua-enciende-las-alarmas-en-estados-unidos.html"},
+            {pais: "Estados Unidos", coordenadas: [25.7617, -80.1918], tema: "Migración", fecha: "2025-02-02", descripcion: "Revocación del TPS para venezolanos en EE.UU., generando preocupación en la comunidad migrante.", enlace: "https://elpais.com/us/2025-02-05/el-fin-del-tps-para-venezolanos-une-a-los-democratas-y-republicanos-de-miami-contra-trump.html"},
+            {pais: "Venezuela", coordenadas: [10.602, -66.9562], tema: "Narcotráfico", fecha: "2024-08-27", descripcion: "Incautación de 3.000 kilogramos de cocaína en el Aeropuerto Internacional de Maiquetía.", enlace: "https://www.infobae.com/venezuela/2024/08/27/la-guerra-de-poder-tras-los-3-mil-kilos-de-cocaina-que-involucra-al-aeropuerto-un-avion-y-funcionarios-al-servicio-del-estado-venezolano/"},
+            {pais: "Venezuela", coordenadas: [10.498, -71.646], tema: "Narcotráfico", fecha: "2024-08-15", descripcion: "Destrucción de laboratorios de cocaína en el estado Zulia, incautación de 9.000 kg de cocaína.", enlace: "https://www.ntn24.com/temas/narcotrafico-en-venezuela"}
+        ];
+
+        noticias.forEach(function(noticia) {
+            var color;
+            if (noticia.tema === "Migración") { color = "blue"; }
+            else if (noticia.tema === "Crimen Organizado") { color = "red"; }
+            else if (noticia.tema === "Narcotráfico") { color = "green"; }
+            L.circleMarker(noticia.coordenadas, {
+                radius: 8, color: color, fillColor: color, fillOpacity: 0.7
+            }).addTo(map).bindPopup(`<b>${noticia.pais}</b><br>Tema: ${noticia.tema}<br>Fecha: ${noticia.fecha}<br>${noticia.descripcion}<br><a href="${noticia.enlace}" target="_blank">Leer más</a>`);
+        });
+    </script>
+</body>
+</html>
