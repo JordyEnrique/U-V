@@ -22,13 +22,19 @@
         }).addTo(map);
 
         var noticias = [
-            {categoria: "Energía", color: "yellow", coordenadas: [10.466, -66.879], descripcion: "Producción petrolera: La producción diaria promedio fue de 680.000 barriles por día【Fuente: <a href='https://www.opec.org' target='_blank'>Informe OPEP, diciembre 2024</a>】."},
-            {categoria: "Energía", color: "yellow", coordenadas: [10.5, -72.0], descripcion: "Crisis eléctrica: Se documentaron 15.430 fallos de electricidad entre agosto de 2024 y febrero de 2025【Fuente: <a href='https://comiteapagones.org' target='_blank'>Comité de Afectados por los Apagones, febrero 2025</a>】."},
-            {categoria: "Migración", color: "blue", coordenadas: [8.0, -80.7821], descripcion: "Crisis del Darién: 70% de los migrantes que cruzan esta peligrosa ruta son venezolanos【Fuente: <a href='https://defensoria.gob.pa' target='_blank'>Defensoría del Pueblo de Panamá, febrero 2025</a>】."},
-            {categoria: "Seguridad", color: "red", coordenadas: [7.9, -72.5], descripcion: "Control territorial: El ELN y las FARC dominan 15 municipios fronterizos【Fuente: <a href='https://www.pares.com.co' target='_blank'>Fundación Paz y Reconciliación, noviembre 2024</a>】."},
-            {categoria: "Narcotráfico", color: "green", coordenadas: [9.5, -71.1], descripcion: "Pistas clandestinas: Se identificaron más de 200 pistas ilegales en Apure y Bolívar【Fuente: <a href='https://www.insightcrime.org' target='_blank'>Reporte Insight Crime, febrero 2025</a>】."},
-            {categoria: "Sanciones", color: "orange", coordenadas: [10.496, -66.849], descripcion: "Sanciones individuales: La UE y Canadá sancionaron a 15 nuevos funcionarios vinculados a violaciones de derechos humanos【Fuente: <a href='https://elpais.com' target='_blank'>Diario El País, noviembre 2024</a>】."},
-            {categoria: "Relaciones Internacionales", color: "purple", coordenadas: [10.5, -66.85], descripcion: "Rusia e Irán: Ampliación de la cooperación militar y tecnológica【Fuente: <a href='https://tass.com' target='_blank'>Agencia Tass, diciembre 2024</a>】."}
+            // Información del primer mapa (Migración, Crimen Organizado, Narcotráfico)
+            {categoria: "Migración", color: "blue", coordenadas: [4.711, -74.0721], descripcion: "Creciente flujo de migrantes venezolanos en la frontera【Fuente: <a href='https://ejemplo.com/noticia1' target='_blank'>Ejemplo</a>】."},
+            {categoria: "Crimen Organizado", color: "red", coordenadas: [-9.19, -75.0152], descripcion: "Operación policial desmantela red de tráfico de personas con vínculos venezolanos【Fuente: <a href='https://ejemplo.com/noticia2' target='_blank'>Ejemplo</a>】."},
+            {categoria: "Crimen Organizado", color: "red", coordenadas: [-33.4489, -70.6693], descripcion: "Desmantelamiento de célula del Tren de Aragua en Santiago【Fuente: <a href='https://elpais.com' target='_blank'>El País</a>】."},
+            {categoria: "Narcotráfico", color: "green", coordenadas: [10.602, -66.9562], descripcion: "Incautación de 3.000 kg de cocaína en el Aeropuerto de Maiquetía【Fuente: <a href='https://www.infobae.com' target='_blank'>Infobae</a>】."},
+            {categoria: "Narcotráfico", color: "green", coordenadas: [10.498, -71.646], descripcion: "Destrucción de laboratorios de cocaína en el estado Zulia【Fuente: <a href='https://www.ntn24.com' target='_blank'>NTN24</a>】."},
+
+            // Nueva información
+            {categoria: "Energía", color: "yellow", coordenadas: [10.466, -66.879], descripcion: "Producción petrolera: 680.000 barriles por día【Fuente: <a href='https://www.opec.org' target='_blank'>OPEP</a>】."},
+            {categoria: "Energía", color: "yellow", coordenadas: [10.5, -72.0], descripcion: "Crisis eléctrica: 15.430 fallos de electricidad entre agosto 2024 y febrero 2025【Fuente: <a href='https://comiteapagones.org' target='_blank'>Comité de Apagones</a>】."},
+            {categoria: "Seguridad", color: "red", coordenadas: [7.9, -72.5], descripcion: "Control territorial del ELN y las FARC en 15 municipios fronterizos【Fuente: <a href='https://www.pares.com.co' target='_blank'>Fundación Pares</a>】."},
+            {categoria: "Sanciones", color: "orange", coordenadas: [10.496, -66.849], descripcion: "Sanciones a 15 nuevos funcionarios vinculados a violaciones de derechos humanos【Fuente: <a href='https://elpais.com' target='_blank'>El País</a>】."},
+            {categoria: "Relaciones Internacionales", color: "purple", coordenadas: [10.5, -66.85], descripcion: "Cooperación militar y tecnológica ampliada con Rusia e Irán【Fuente: <a href='https://tass.com' target='_blank'>TASS</a>】."}
         ];
 
         noticias.forEach(function(noticia) {
@@ -45,10 +51,10 @@
         legend.onAdd = function () {
             var div = L.DomUtil.create('div', 'legend');
             div.innerHTML += '<b>Leyenda</b><br>';
-            div.innerHTML += '<span style="background: yellow"></span> Energía<br>';
             div.innerHTML += '<span style="background: blue"></span> Migración<br>';
-            div.innerHTML += '<span style="background: red"></span> Seguridad<br>';
+            div.innerHTML += '<span style="background: red"></span> Crimen Organizado / Seguridad<br>';
             div.innerHTML += '<span style="background: green"></span> Narcotráfico<br>';
+            div.innerHTML += '<span style="background: yellow"></span> Energía<br>';
             div.innerHTML += '<span style="background: orange"></span> Sanciones<br>';
             div.innerHTML += '<span style="background: purple"></span> Relaciones Internacionales<br>';
             return div;
